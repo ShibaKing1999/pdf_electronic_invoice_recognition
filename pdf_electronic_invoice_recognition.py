@@ -21,9 +21,9 @@ def re_finditer_text(compile_bt, text):
     return list(compile_bt.finditer(text))
 
 
-def read_pdf_invoice(pdf_file_path):
+def read_pdf_invoice(pdf_file_path) -> dict:
     """获取发票信息"""
-    invoice_info_dict = []
+    invoice_info_dict = dict()
     # 读取单个文件，只读取pdf格式的发票
     if os.path.splitext(pdf_file_path)[1] == '.pdf':
         with (pdfplumber.open(pdf_file_path) as pdf):
